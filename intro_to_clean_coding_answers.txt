@@ -1,0 +1,165 @@
+#1 Clean code is efficient and easy to read. Code should not include repetitive code and should be broken up into functions are needed. Variables and functions should be names appropriately and follow naming convention, for example, if you are writing in Javascript, you should use camel case. 
+
+#2 I also came across this article as well about different incidents where NASA's engineers had botched rocket launches because of simple mistakes: https://priceonomics.com/the-typo-that-destroyed-a-space-shuttle/ One example was due to a missing hyphen in the code. It seems as though some basic principles of programming were overlooked in these cases. Besides cars, it seems most everyday objects that rely on computers may not potentially critically harm humans. There are some specialized equipment that relies on computers that may eventually kill people. For example, I imagine that many farms have an automatic system that sprays vegetables with pesticides that kills bacteria like E.Coli. If something malfunctions with that system due to poor programming and the pesticides are not sprayed, I imagine that there could still be E.Coli on vegetables. 
+
+#3 I would not consider it completely clean code. The names of the function and the variables are not descriptive. Code is also repeated with the print statement.
+
+FUNCTION converDegrees(deg, type)
+	INIT convert to 0
+	IF type = "F" THEN
+		SET convert to (x−32) * (5/9)
+	ELSE IF type = "C" THEN
+		SET convert to x * 1.8000 + 32.00
+	END IF
+	PRINT convert
+END FUNCTION
+
+
+#4 I would also not consider this clean code. Typically you would want similar steps, but different outcomes, to occur in if-else statements.
+
+FUNCTION calcPercent(sum, total)
+	IF NOT(total = 0) THEN
+		PRINT percentage to sum / total * 100
+	ELSE
+		PRINT "Sorry, cannot divide by 0"
+	END IF
+END FUNCTION
+
+
+#5a 
+FUNCTION checkOutCustomer(subTotal, discountRate, paymentType)
+	PRINT "Your total due is: " + subTotal * discountRate + (subTotal * tax)
+	CALL getPayment RETURNING amount
+	IF paymentType = 'CASH' THEN
+		PRINT "Change due: " + amount - subTotal * discountRate + (subTotal * tax)
+	ELSE IF paymentType = 'CREDIT CARD' THEN
+		PRINT "Your credit card has been charged: " + subTotal * discountRate + (subTotal * tax)
+   END IF
+END FUNCTION
+
+
+#5b
+FUNCTION checkoutBook(book, guest)
+	IF guest.accountActive AND NOT(guest.hasOverdueBooks) AND guest.outstandingFees = 0 THEN
+        	APPEND book to guest.books
+        	SET book.status to "Checked Out"
+        	PRINT "Your books have been issued."
+	ELSE
+     		PRINT "Unable to check out book."
+	END IF
+END FUNCTION
+
+
+#5c
+CLASS BankAccount
+
+	FUNCTION displayBalance
+		PRINT balance
+	END FUNCTION
+
+	FUNCTION deposit(amount)
+		SET balance to balance + amount
+	END FUNCTION
+
+	FUNCTION withdraw(amount)
+		IF balance > amount THEN
+			SET balance to balance - amount
+		END
+	END FUNCTION
+
+	FUNCTION creditCardOffer
+		IF NOT(customer.hasCreditCard) THEN
+			CALL offerCreditCard
+		END
+	END FUNCTION
+
+	FUNCTION checkStatus
+		IF NOT(customer.hasCheckingAccount) THEN
+			CALL offerCheckingAccount
+		END
+	END FUNCTION
+
+	FUNCTION offerCheckingAccount
+		ASK "Would you like to open a checking account"?
+		SET answer to INPUT
+			IF answer is "Yes" THEN
+				SET balance to 0
+				ASK "Would you like to deposit money now?"
+				SET answer to INPUT
+				IF answer is "Yes" THEN
+					ASK "How much would you like to deposit?"
+					SET answer to INPUT
+					CALL deposit(answer)
+				END
+			END
+	END FUNCTION
+	
+	FUNCTION offerCreditCard
+		ASK "Would you like a credit card"?
+		SET answer to INPUT
+			IF answer is "Yes" THEN
+				CALL checkStatus
+				PRINT "Here is your credit card!" 
+			END
+	END FUNCTION
+				
+
+END
+
+
+#6 Javascript:
+function findSquare(arr){
+	//get sum
+	let total = arr.reduce((total,x)=>{
+  	return total + x;
+  })
+  
+  //get square
+  let square = Math.sqrt(total);
+  
+  //find if there square is not a whole number
+  return square%Math.floor(square) === 0;
+
+}
+
+
+#7 Javascript
+function findDups(arr){
+	//sort
+  arr.sort()
+  
+  //check if one next to it is equal
+  for(let i=0; i<arr.length-1;i++){
+  	if(arr[i] === arr[i+1]){
+    	return true;
+    }
+  }
+  return false;
+}
+
+
+#8 Javascript
+function anagram(strA, strB){
+	//convert strings to arrays
+	strA = strA.split("");
+  strB = strB.split("");
+	
+  //check if the arrays are the same length
+  if(strA.length != strB.length){
+  	return false;
+	}
+  
+  //get length of array
+  let len = strA.length;
+  
+  //find the middle index
+  let m = len%2 === 0 ? Math.floor(len/2)+1 : Math.floor(len/2);
+  
+  //compare left end of strA to right end of strB and work inward.
+  for(let i = 0; i<m;i++){
+  	if(strA[i] !== strB[len - 1 -i]){
+    	return false;
+    }
+	}
+  return true;
+}
