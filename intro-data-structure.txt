@@ -1,0 +1,70 @@
+#1
+a. let line = ["Vivian", "Ava", "Josh", "Patrick", "Mike"];
+b. line.push("Mary");
+c. function findPerson(arr, person){
+		return arr.indexOf(person);
+   }
+   findPerson(line, "Josh");
+d. findPerson(line, "Emily");
+e. function cutLine(arr, friend, personInLine){
+	let index = arr.indexOf(personInLine);
+	if(index !== -1){
+		arr.splice(index, 0, friend);
+	}
+   }
+f. function leaveLine(arr, person){
+	let index = arr.indexOf(person);
+	if(index !== -1){
+		arr.splice(index, 1);
+	}
+   }
+
+
+#2
+class visitedCities{
+	constructor(){
+		this.cities = [];
+	}
+	addCity(city){
+  	if(city.name === null || city.name ===undefined){
+    	return "City has no name"
+    }
+  
+		//check for properties - lat, long, and cities
+		if(city.lat === null || city.lat === undefined || city.lat < -90 || city.lat > 90){
+			return "City has no latitude"
+		}
+		if(city.long === null || city.long === undefined || city.long < -180 || city.long > 180){
+			return "City has no longitude"
+		}
+    let imageslen = city.images.length;
+		if(imageslen > 0){
+			//check if file name ends in jpg, jpeg, png, or gif
+			let fileOptions = ["jpg","jpeg", "png","gif"];
+      for(let i = 0; i<imageslen; i++){
+      	let name = city.images[i].split(".");
+        if(!fileOptions.includes(name[name.length-1])){
+					return "Incorrect file format for " + city.images[i];
+				}
+      }
+		}
+    console.log("added");
+		this.cities.push(city);
+	}
+	
+	getCity(cityName){
+  	for(let i=0; i<this.cities.length; i++){
+    	if(this.cities[i].name == cityName){
+      	return this.cities[i];
+      }
+    }
+    return null;
+	}
+	
+	getCities(){
+		return this.cities;
+	}
+}
+
+
+#3 The data structure is to stores locations of places visited and the images taken at that place. At the core of the object, there is an array of objects that represent cities. The cities have names, latitudes, longitudes, and image file names. Ideally, a developer would use this to store images based on locations. I would develop this object further to do better checks of what is passed in.
