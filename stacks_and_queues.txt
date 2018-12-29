@@ -1,0 +1,104 @@
+Exercises
+
+#1 The main difference between a stack and a queue is the order in which the items are added and removed. The first item added to the stack will most likely not be the first one removed. The first item added to a queue will always be the first one removed. 
+
+#2 Stacks and queues are similar in the data is organized in a  linear fashion. Each element can have one before it and one after it, but that is it. It cannot have more elements connected tot it, like in a graph or hash table. 
+
+#3 If I were to implement UNDO and REDO, I would most likely want to use a stack to store all actions taken. That way, the most recent action will always be the first element. 
+
+
+
+Programming Questions
+
+#1
+class Stack{
+	constructor(){
+  	this.stack = [];
+  }
+  pushElement(element){
+  	this.stack.push(element);
+  }
+  
+  popElement(){
+  	return this.stack.pop();
+  }
+}
+
+function reverseString(str){
+	if(typeof str !== "string"){
+  	return null;
+  }
+ 	
+  //convert str to array
+  let arr = str.split("");
+  console.log(arr);
+  let stack = new Stack();
+  
+  //add each element to stack
+  for(let i = 0; i < arr.length; i++){
+  	stack.pushElement(arr[i]);
+  }
+  
+  let finalArr = [];
+  for(let i = 0; i < arr.length; i++){
+  	finalArr.push(stack.popElement());
+  }
+  
+  return finalArr.join("");
+}
+
+let test = "Bloc!";
+console.log(reverseString(test));
+
+
+#2/3 (To be honest, I was confused on the difference between these different questions
+class Queue{
+  constructor(){
+	this.queue = [];
+  }
+  enqueue(element){
+  	this.queue.push(element);
+  }
+  
+  dequeue(){
+  	return this.queue.shift();
+  }
+}
+class Stack{
+  constructor(){
+  	this.stack = [];
+  }
+  pushElement(element){
+  	this.stack.push(element);
+  }
+  
+  popElement(){
+  	return this.stack.pop();
+  }
+}
+
+function reverseString(str){
+  if(typeof str !== "string"){
+  	return null;
+  }
+ 	
+  //convert str to array
+  let arr = str.split("");
+  console.log(arr);
+  let stack = new Stack();
+  
+  //add each element to stack
+  for(let i = 0; i < arr.length; i++){
+  	stack.pushElement(arr[i]);
+  }
+  
+  let finalArr = new Queue();
+  for(let i = 0; i < arr.length; i++){
+  	finalArr.enqueue(stack.popElement());
+  }
+  
+  return finalArr.queue.join("");
+}
+
+let test = "Bloc!";
+console.log(reverseString(test));
