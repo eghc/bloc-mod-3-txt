@@ -1,0 +1,81 @@
+Exercises
+
+1. What is a binary tree and what makes it unique to other trees? 
+Every node in a binary tree only point to one or  two nodes. Nodes in other trees can sometimes have more than two nodes. 
+
+2. What is a heuristic?
+Heuristic is the best guess without having to calculate every option. 
+
+3. What is another problem besides the shortest-path problem that requires the use of heuristics?
+I think about recommendations on Amazon, Instagram, etc. where there are so many options they can probably provide, so not every option will be evaluated and recommended. These most likely uses graphs as well to accomplish it. 
+
+4. What is the difference between a depth-first search and a breadth-first search?
+Depth-first search follows the tree/graph from the root to the last nodes. It reaches the bottom sub trees/graphs first and then works back. It also utilizes a stack to accomplish this.
+Breadth-first search gets the nodes in a tree/graph that are the same amount of nodes away from the root. For example, it gets the root first, the nodes that are connected to the root second, the nodes connected to those last nodes third, etc. Breadth-first search also utilizes a queue to get the nodes.  
+
+5. Explain in your own words what an undirected, a-cyclic, unweighted graph is.
+An undirected, a-cyclic, unweighted graph is a graph with no values for the edges, nodes that can point in either direction, and if you follow any path of nodes, you will not reach the same nodes unless you were to go backwards in your path. This seems similar to following a path from point A to B where each node is a street corner, each block is an edge, and each block is the same length. The different paths are probably not cyclic and you could technically go either direction, but will probably not. 
+
+6. What kind of graph is a binary search tree?
+A binary search tree is an unweighted, a-cyclic, directed graph.
+
+
+
+Programming Questions
+
+1. Given a Binary Search Tree and a value, write a function that checks to see whether the value exists within the tree.
+
+FUNCTION findValue(root, val):
+	SET curr to root
+	WHILE curr.val DOES NOT EQUAL val AND curr.left IS NOT NULL AND curr.right IS NOT NULL:
+		IF curr.right.val IS LESS THAN val:
+			curr = curr.right
+		ELSE IF curr.left.val IS GREATER THAN val:
+			curr = curr.left
+		ELSE:
+			BREAK FROM LOOP
+	IF curr.val EQUALS val:
+		RETURN true
+	ELSE:
+		RETURN false
+			
+
+2. Given a Binary Search Tree and two nodes, n1 and n2, write a function that finds the distance between the two nodes.
+
+FUNCTION getDistance(root, n1,n2):
+	//get distance to node 1
+	SET curr to root
+	SET distanceN1 to 0
+	WHILE curr DOES NOT EQUAL n1 AND curr.left IS NOT NULL AND curr.right IS NOT NULL:
+		IF curr.right.val IS LESS THAN n1.val:
+			curr = curr.right
+			ADD 1 to distanceN1 
+		ELSE IF curr.left.val IS GREATER THAN n1.val:
+			ADD 1 to distanceN1
+			curr = curr.left
+		ELSE:
+			BREAK FROM LOOP
+	
+	//if the n1 is not found
+	IF curr.val DOES NOT EQUAL n1.val:
+		RETURN
+
+	//get distance to node 2
+	SET curr to root
+	SET distanceN2 to 0
+	WHILE curr DOES NOT EQUAL n2 AND curr.left IS NOT NULL AND curr.right IS NOT NULL:
+		IF curr.right.val IS LESS THAN n2.val:
+			curr = curr.right
+			ADD 1 to distanceN2 
+		ELSE IF curr.left.val IS GREATER THAN n2.val:
+			ADD 1 to distanceN2
+			curr = curr.left
+		ELSE:
+			BREAK FROM LOOP
+	
+	//if the n2 is not found
+	IF curr.val DOES NOT EQUAL n2.val:
+		RETURN
+
+	RETURN distanceN1 + distanceN2
+
