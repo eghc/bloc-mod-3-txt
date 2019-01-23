@@ -1,0 +1,29 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="hash_8.js"></script>
+  </head>
+  <body>
+    <h1>
+    Add Newspaper
+    </h1>
+    Publisher: <input class= "publisher "type="text"><br>
+    Publication Date: <input class="date" type="date"><br>
+    Digital Copy: <input class="file"  type="file" ><br>
+
+    <input type="submit" value="Submit" onclick="createNewspaper()">
+    <div id = "doneCreation">
+    </div>
+
+    <h1>
+      Find a Newspaper
+    </h1>
+    Publisher: <input type="text" class="publisherFind"><br>
+    Publication Date: <input type="date" class="dateFind"><br>
+    <input type="submit" value="Submit" onclick="findNewspaper()">
+    <div id = "results">
+
+    </div>
+  </body>
+</html>

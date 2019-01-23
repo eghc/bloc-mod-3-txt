@@ -1,0 +1,121 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="hash_7.js"></script>
+  </head>
+  <body>
+    <h1>
+    Add Item
+    </h1>
+    <div>
+      BrandId: <input type="text" name="BrandId" class="BrandId">
+    </div>
+
+    <div>
+    Brand:
+      <select name="Brand" class="Brand">
+        <option value="Marc Jacobs">Marc Jacobs</option>
+        <option value="Theory">Theory</option>
+        <option value="J Brand">J Brand</option>
+        <option value="Citizens of Humanity">Citizens of Humanity</option>
+      </select>
+    </div>
+
+    <div>
+    Category:
+    <select name = "Category" class="Category">
+      <option value="Tops">Tops</option>
+      <option value="Outerwear">Outerwear</option>
+      <option value="Pants">Pants</option>
+      <option value="Shoes">Shoes</option>
+    </select>
+    </div>
+
+    <div>
+    Fabric:
+    <div class="Fabric">
+      <input type="radio" name="Fabric" value="Cotton" checked>Cotton<br>
+      <input type="radio" name="Fabric" value="Linen">Linen<br>
+      <input type="radio" name="Fabric" value="Jersery">Jersery<br>
+      <input type="radio" name="Fabric" value="Silk">Silk<br>
+      <input type="radio" name="Fabric" value="Other">Other<br>
+    </div>
+    </div>
+
+    <div>
+    Color:
+      <div class="Color">
+        <input type="checkbox" name="colorRed" value="Red">Red
+        <br>
+        <input type="checkbox" name="colorOrange" value="Orange">Orange
+        <br>
+        <input type="checkbox" name="colorYellow" value="Yellow">Yellow
+        <br>
+        <input type="checkbox" name="colorGreen" value="Green">Green
+        <br>
+        <input type="checkbox" name="colorBlue" value="Blue">Blue
+        <br>
+        <input type="checkbox" name="colorPurple" value="Purple">Purple
+        <br>
+        <input type="checkbox" name="colorWhite" value="White">White
+        <br>
+        <input type="checkbox" name="colorBlack" value="Black">Black
+      </div>
+    </div>
+    Description: <input type="text" name="Description" class="Description" value=""><br>
+    Quantity: <input type="number" name="Quantity" class="Quantity" min="0" max="20">
+    <br>
+    <input type="submit" value="Submit" onclick="createItem()">
+    <div id = "doneCreation">
+    </div>
+
+    <h1>
+      Search Item
+    </h1>
+    <div>
+    Brand:
+      <select name="findBrand" class="findBrand">
+        <option value="Marc Jacobs">Marc Jacobs</option>
+        <option value="Theory">Theory</option>
+        <option value="J Brand">J Brand</option>
+        <option value="Citizens of Humanity">Citizens of Humanity</option>
+      </select>
+    </div>
+
+    <div>
+    Category:
+    <select name = "findCategory" class="findCategory">
+      <option value="Tops">Tops</option>
+      <option value="Outerwear">Outerwear</option>
+      <option value="Pants">Pants</option>
+      <option value="Shoes">Shoes</option>
+    </select>
+    </div>
+
+    <div>
+    Color:
+      <div class="findColor">
+        <input type="checkbox" name="colorRed" value="Red">Red
+        <br>
+        <input type="checkbox" name="colorOrange" value="Orange">Orange
+        <br>
+        <input type="checkbox" name="colorYellow" value="Yellow">Yellow
+        <br>
+        <input type="checkbox" name="colorGreen" value="Green">Green
+        <br>
+        <input type="checkbox" name="colorBlue" value="Blue">Blue
+        <br>
+        <input type="checkbox" name="colorPurple" value="Purple">Purple
+        <br>
+        <input type="checkbox" name="colorWhite" value="White">White
+        <br>
+        <input type="checkbox" name="colorBlack" value="Black">Black
+      </div>
+    </div>
+
+    <input type="submit" value="Submit" onclick="findItem()">
+    <div id = "results">
+    </div>
+  </body>
+</html>
