@@ -1,0 +1,37 @@
+#1 What is a hash table?
+A hash table is similar to arrays in that it is used to store a collection of data. Unlike arrays, a hash table indexes the data with a key that can be defined however. Arrays are index with numbers and each item is stored next to each other but with a hash table, the data is not necessarily stored linearly. 
+
+
+#2 What is hashing?
+Hashing is using a function to convert a key to a numerical index. This key is used to store and find the element. There are many hashing functions out there.
+
+
+#3 How does a hash table store data?
+A hash table stores that data based on the hashed key, not simply adding another space at the end like an array. Therefore, not all items in a hash are stored next to each other.
+
+
+#4 How are hash tables and objects different?
+Hash tables are designed to store a collection of similar item where as an object is design to store the different attributes of one item. A hash table can certainly be used as an object, but it was optimized to store a collection of items, not just one item. Also, hash tables do not allow custom methods where as objects allow you to create methods.
+
+
+#5 Determine whether you would use a hash table or an object to store each of the following pieces of data:
+
+A list of pets and their unique names. -- Hash table
+
+The name, age, and the birthday of your best friend. -- Object
+
+The name and location of every company in a given city. -- Hash table
+
+All of the books checked out from a library by a particular individual. -- Hash table
+
+The primary and secondary phone numbers for a contact. -- Object
+
+
+#6 Build a system that allows a sales associate to enter a customer's name, address, and phone number into the system and look up customers using their phone numbers. Store this information in a hash table.
+(See hash_6.html and hash_6.js)
+
+#7 Build a system that allows a store owner to track their store's inventory using a hash table for storage.
+(See hash_7.html and hash_7.js)
+
+#8 Build a system that allows digital copies of newspapers to be entered and searched by publisher and publication date. Use hash tables to store the necessary data.
+(See hash_8.html and hash_8.js)
